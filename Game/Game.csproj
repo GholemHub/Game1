@@ -46,21 +46,50 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Controllers\ActionControll.cs" />
+    <Compile Include="Controllers\MapController.cs" />
+    <Compile Include="Form1.cs" />
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="House.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="House.Designer.cs">
+      <DependentUpon>House.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory.cs" />
+    <Compile Include="MainMenu1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainMenu1.Designer.cs">
+      <DependentUpon>MainMenu1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RedMarket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RedMarket.Designer.cs">
+      <DependentUpon>RedMarket.cs</DependentUpon>
+    </Compile>
     <Compile Include="Res.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Res.resx</DependentUpon>
     </Compile>
+    <Compile Include="Shop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Shop.Designer.cs">
+      <DependentUpon>Shop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TheMap.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMenu1.resx">
+      <DependentUpon>MainMenu1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -72,9 +101,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RedMarket.resx">
+      <DependentUpon>RedMarket.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Res.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Res.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Shop.resx">
+      <DependentUpon>Shop.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -109,6 +144,120 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\RedBox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SlimeRancher.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FK8bTo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Slime1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FK8bTowe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\playerView_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\playerView_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\playerView_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Water.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Adventurer Sprite Sheet v1.1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fence.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fence2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fence3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fence4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fence5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fence0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fence1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Grass1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ground1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GroundUnWatered.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\market_stand_red_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\market_stand_red_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\market_stand_red_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\market_stand_red_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\market_stand_red_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\market_stand_red_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\market_stand_red_6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\market_stand_red_7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\market_stand_red_8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\market_stand_red_9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\market_stand_red_10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\market_stand_red_11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\лопата-all-4.0.png" />
+    <None Include="Resources\TX32_2_1_1.png" />
+    <None Include="Resources\Tn7UqW6.png" />
+    <None Include="Resources\TX32_2_1.png" />
+    <None Include="Resources\TX32_3.png" />
+    <None Include="Resources\TX32_1.png" />
+    <None Include="Resources\TX32_2.png" />
+    <None Include="Resources\TexturPak2.png" />
+    <None Include="Resources\лопата1.2 %282%29.png" />
+    <None Include="Resources\Axe.png" />
+    <None Include="Resources\RexturPak1.png" />
+    <None Include="Resources\Seeds.png" />
+    <None Include="Resources\exSeeds.png" />
+    <None Include="Resources\fruits.png" />
+    <None Include="Resources\Carrot.png" />
+    <None Include="Resources\2d7061d0012d949f9d1fac0e87745649.jpg" />
+    <None Include="Resources\Exit.png" />
+    <None Include="Resources\Play.png" />
+    <Content Include="Resources\shovel.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

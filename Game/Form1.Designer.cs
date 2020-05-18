@@ -11,14 +11,14 @@
         /// Освободить все используемые ресурсы.
         /// </summary>
         /// <param name="disposing">истинно, если управляемый ресурс должен быть удален; иначе ложно.</param>
-        protected override void Dispose(bool disposing)
+        /*protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
             {
                 components.Dispose();
             }
             base.Dispose(disposing);
-        }
+        }*/
 
         #region Код, автоматически созданный конструктором форм Windows
 
@@ -29,43 +29,63 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.TextBoxInventory = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SuspendLayout();
+            this.PlayerBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.PlayerBox1)).BeginInit();
+            //this.SuspendLayout();
             // 
-            // pictureBox1
+            // TextBoxInventory
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(-5, -7);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(128, 365);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.TextBoxInventory.BackColor = System.Drawing.Color.YellowGreen;
+            this.TextBoxInventory.Enabled = false;
+            this.TextBoxInventory.Location = new System.Drawing.Point(765, 12);
+            this.TextBoxInventory.Multiline = true;
+            this.TextBoxInventory.Name = "TextBoxInventory";
+            this.TextBoxInventory.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.TextBoxInventory.Size = new System.Drawing.Size(405, 60);
+            this.TextBoxInventory.TabIndex = 1;
+            this.TextBoxInventory.TabStop = false;
+            this.TextBoxInventory.Text = " ";
+            this.TextBoxInventory.WordWrap = false;
+            // 
+            // PlayerBox1
+            // 
+            this.PlayerBox1.BackColor = System.Drawing.Color.Transparent;
+            this.PlayerBox1.Enabled = false;
+            this.PlayerBox1.Location = new System.Drawing.Point(831, 269);
+            this.PlayerBox1.Name = "PlayerBox1";
+            this.PlayerBox1.Size = new System.Drawing.Size(66, 115);
+            this.PlayerBox1.TabIndex = 2;
+            this.PlayerBox1.TabStop = false;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Game.Res.backGround;
-            this.ClientSize = new System.Drawing.Size(2846, 1325);
-            this.Controls.Add(this.pictureBox1);
+            /*this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.BackgroundImage = global::Game.Res.Water;
+            this.ClientSize = new System.Drawing.Size(1208, 537);
+            this.Controls.Add(this.PlayerBox1);
+            this.Controls.Add(this.TextBoxInventory);
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.ImeMode = System.Windows.Forms.ImeMode.On;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Game";
             this.TopMost = true;
             this.TransparencyKey = System.Drawing.SystemColors.WindowFrame;
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Draw);
+            ((System.ComponentModel.ISupportInitialize)(this.PlayerBox1)).EndInit();
             this.ResumeLayout(false);
-
+            this.PerformLayout();
+            */
         }
 
         #endregion
-
+        private System.Windows.Forms.TextBox TextBoxInventory;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Timer timer2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox PlayerBox1;
     }
 }
 
