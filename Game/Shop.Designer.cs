@@ -218,8 +218,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Game.Res.ShopWallpaper;
-            this.ClientSize = new System.Drawing.Size(804, 687);
+            this.BackgroundImage = global::Game.Res.ShopBack;
+            this.ClientSize = new System.Drawing.Size(838, 409);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.BuySeedsCarrotsLable);
@@ -238,6 +238,8 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Name = "Shop";
+            this.Opacity = 0.9D;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Shop";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

@@ -35,6 +35,7 @@
             this.PlayerTimer = new System.Windows.Forms.Timer(this.components);
             this.ToolsTimer = new System.Windows.Forms.Timer(this.components);
             this.TimerRoots = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // timer1
@@ -43,9 +44,10 @@
             // 
             // textBox1
             // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Enabled = false;
             this.textBox1.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.textBox1.Location = new System.Drawing.Point(487, 59);
+            this.textBox1.Location = new System.Drawing.Point(566, 39);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(282, 28);
@@ -57,7 +59,7 @@
             // 
             this.textBox2.Enabled = false;
             this.textBox2.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.textBox2.Location = new System.Drawing.Point(487, 149);
+            this.textBox2.Location = new System.Drawing.Point(566, 88);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(282, 28);
@@ -78,17 +80,28 @@
             // 
             this.TimerRoots.Enabled = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(939, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 17);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "label1";
+            // 
             // RedMarket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1163, 727);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.DoubleBuffered = true;
             this.Name = "RedMarket";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RedMarket";
             this.Load += new System.EventHandler(this.RedMarket_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.OnPaint);
@@ -104,5 +117,6 @@
         private System.Windows.Forms.Timer PlayerTimer;
         private System.Windows.Forms.Timer ToolsTimer;
         private System.Windows.Forms.Timer TimerRoots;
+        private System.Windows.Forms.Label label1;
     }
 }

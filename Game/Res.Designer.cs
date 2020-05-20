@@ -361,6 +361,15 @@ namespace Game {
         }
         
         /// <summary>
+        ///   Поиск локализованного ресурса типа System.IO.UnmanagedMemoryStream, аналогичного System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream music1 {
+            get {
+                return ResourceManager.GetStream("music1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Play {
@@ -456,6 +465,16 @@ namespace Game {
         internal static System.Drawing.Bitmap Seeds {
             get {
                 object obj = ResourceManager.GetObject("Seeds", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ShopBack {
+            get {
+                object obj = ResourceManager.GetObject("ShopBack", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

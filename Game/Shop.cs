@@ -20,7 +20,7 @@ namespace Game
             label3.Text = Convert.ToString("Money: " + HotPocket.money +
                  "\nCarrot: " + HotPocket.Carrot +
                  "\nCarrot Seeds: " + HotPocket.CarrotSeeds
-                 ) ;
+                 );
             label1.Text = HotPocket.Carrot.ToString();
             label4.Text = AmoutCarrot.ToString() + "*" + 10.ToString() + "=" + LabelTwo.ToString();
             label2.Text = AmoutCarrot.ToString() + "*" + 10.ToString() + "=" + LabelTwo.ToString();

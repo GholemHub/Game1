@@ -93,6 +93,8 @@ namespace Game.Controllers
               {new TheMap(Garden1,true),new TheMap(Garden2),   new TheMap(grass1),   new TheMap(grass1), new TheMap(grass1), new TheMap(grass1), new TheMap(grass1), new TheMap(grass1),new TheMap(grass1) ,new TheMap(grass1),new TheMap(grass1),new TheMap(grass1),new TheMap(grass1),new TheMap(grass1),new TheMap(grass1),new TheMap(grass1),new TheMap(grass1),new TheMap(grass1),new TheMap(grass1),                                                                                                                 new TheMap(Garden1,true)},
              {new TheMap(Garden1,true),        new TheMap(Garden1,true), new TheMap(Garden1,true),     new TheMap(Garden1,true),     new TheMap(Garden1,true),   new TheMap(Garden1,true)  ,new TheMap(Garden1,true), new TheMap(Garden1,true), new TheMap(Garden1) ,new TheMap(Garden1),new TheMap(Garden1),new TheMap(Garden1),new TheMap(Garden1,true),new TheMap(Garden1,true),new TheMap(Garden1,true),new TheMap(Garden1,true),new TheMap(Garden1,true),new TheMap(Garden1,true),new TheMap(Garden1,true),new TheMap(Garden1,true)}
                 };
+
+
         public static void DrawMap(Graphics g)
         {
 
@@ -173,7 +175,7 @@ namespace Game.Controllers
 
                         BigMap[j-1, i+2].Water = true;
                         
-                        BigMap[j-1, i+2].NextRoom = true;
+                        BigMap[21, 5].NextRoom = true;
 
 
 

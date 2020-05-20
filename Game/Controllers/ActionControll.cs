@@ -208,70 +208,93 @@ namespace Game.Controllers
 
         public static void ToollUse(Entity entity, int i, int j, List<Seeds> seeds)
         {
-            
-                if (entity.ToolIndex == 1)
-                {
-                    MapController.BigMap[j, i].Fon = Dirt_No_Water;
-                }
-                if (entity.ToolIndex == 3)
-                {
-                    if (MapController.BigMap[j, i].Water)
-                        entity.Water = 5;
 
-                    if (entity.Water != 0)
+            if (entity.ToolIndex == 1)
+            {
+                MapController.BigMap[j, i].Fon = Dirt_No_Water;
+                //MessageBox.Show("234");
+            }
+            if (entity.ToolIndex == 3)
+            {
+                if (MapController.BigMap[j, i].Water)
+                    entity.Water = 5;
+
+                if (entity.Water != 0)
+                {
+                    if (MapController.BigMap[j, i].Fon == Dirt_No_Water)
                     {
-                        if (MapController.BigMap[j, i].Fon == Dirt_No_Water)
-                        {
-                            MapController.BigMap[j, i].Fon = DirtWatered;
-                            entity.Water--;
-                        }
-                        else { }
+                        MapController.BigMap[j, i].Fon = DirtWatered;
+                        entity.Water--;
                     }
+                    else { }
                 }
+            }
 
-                if(entity.ToolIndex == 4)
-                {
+            if (entity.ToolIndex == 4)
+            {
                 int id;
-                    foreach (var seed in seeds)
-                    {
-                        for(int l = 0; l < seed.roots.Count; l++)
-                        {
-                            if (seed.roots[l].i == i && seed.roots[l].j == j)
-                            {
-                                MapController.BigMap[j, i].Fon = Dirt_No_Water;
-                                id = seed.roots[l].id + 10;
-
-                                RedMarket.fruits.Add(new Fruit(Res.fruits, i, j, id));
-                                seed.roots.Remove(seed.roots[l]);
-                            }
-                        }
-                        }
-                }
-
-                if (entity.ToolIndex == 10)
+                foreach (var seed in seeds)
                 {
-                    foreach (var seed in seeds)
+                    for (int l = 0; l < seed.roots.Count; l++)
                     {
-                        if (MapController.BigMap[j, i].Fon == DirtWatered && HotPocket.CarrotSeeds!= 0)
+                        if (seed.roots[l].i == i && seed.roots[l].j == j)
                         {
-                            seed.CountRoots++;
+                            MapController.BigMap[j, i].Fon = Dirt_No_Water;
+                            //id = seed.roots[l].id + 10;
 
-                            Roots newRoot = new Roots(i, j, 10);
-
-                            seed.roots.Add(newRoot);
-                        //int c = 1;
-
-                        //seed.roots2.Add(1);
-
-
-                        //TimerOfSeeds(seeds[0],i,j);
-                        HotPocket.CarrotSeeds--;
-                        //seed.AmountSeeds--;
+                            RedMarket.fruits.Add(new Fruit(Res.fruits, i, j, seed.roots[l].id + 10));
+                            seed.roots.Remove(seed.roots[l]);
                         }
                     }
                 }
             }
-            
+            foreach (var seed in seeds)
+            {
+                if (entity.ToolIndex == 10)
+                {
+                    if (MapController.BigMap[j, i].Fon == DirtWatered && HotPocket.CarrotSeeds != 0)
+                    {
+                        HotPocket.CarrotSeeds -= 1;
+                        seed.CountRoots++;
+
+                        Roots newRoot = new Roots(i, j, 10);
+                        seed.roots.Add(newRoot);
+                        str = seed.CountRoots.ToString() + " " + seed.roots.Count.ToString();
+                        return;
+                    }
+                }
+
+
+                if (entity.ToolIndex == 11)
+                {
+                    if (MapController.BigMap[j, i].Fon == DirtWatered && HotPocket.StrawberySeeds != 0)
+                    {
+                        seed.CountRoots++;
+
+                        Roots newRoot = new Roots(i, j, 11);
+                        seed.roots.Add(newRoot);
+                        HotPocket.StrawberySeeds--;
+                        str = seed.CountRoots.ToString() + " " + seed.roots.Count.ToString();
+                        return;
+                    }
+                }
+
+                if (entity.ToolIndex == 12)
+                {
+                    if (MapController.BigMap[j, i].Fon == DirtWatered && HotPocket.CabbageSeeds != 0)
+                    {
+                        seed.CountRoots++;
+
+                        Roots newRoot = new Roots(i, j, 12);
+                        seed.roots.Add(newRoot);
+                        HotPocket.CabbageSeeds--;
+                        str = seed.CountRoots.ToString() + " " + seed.roots.Count.ToString();
+                        return;
+                        //seed.roots.Add(newRoot);
+                    }
+                }
+            }
+        }
         public static void CursoreView(int x, int y, Entity player)
         {
             if (player.posX < x && player.posY < y) player.PlayerView = 1;
@@ -287,8 +310,14 @@ namespace Game.Controllers
                 player.SetAnimationConfiguration(14);
             else if (player.ToolIndex == 4)
                 player.SetAnimationConfiguration(11);
-            else if (player.ToolIndex == 20)
-                player.SetAnimationConfiguration(7);
+            else if (player.ToolIndex == 10)
+                player.SetAnimationConfiguration(10);
+            else if (player.ToolIndex == 11)
+                player.SetAnimationConfiguration(12);
+            else if (player.ToolIndex == 12)
+                player.SetAnimationConfiguration(13);
+            /* else if (player.ToolIndex == 20)
+                 player.SetAnimationConfiguration(7);*/
             else { }
 
             //str2 = ":::" + player.PlayerView.ToString();
@@ -539,7 +568,6 @@ namespace Game.Controllers
                         {
                             for (int i = (entity.posY + 16) / MapController.cellSize; i < (entity.posY + 16 + MapController.cellSize) / MapController.cellSize; i++)
                             {
-
                                 for (int j1 = (tool[o].posX + 16) / MapController.cellSize; j1 < (tool[o].posX + 16 + MapController.cellSize) / MapController.cellSize; j1++)
                                 {
                                     for (int i1 = (tool[o].posY + 16) / MapController.cellSize; i1 < (tool[o].posY + 16 + MapController.cellSize) / MapController.cellSize; i1++)
@@ -571,12 +599,17 @@ namespace Game.Controllers
                                                 {
                                                     for (int frut = 0; frut < RedMarket.fruits.Count; frut++)
                                                     {
-                                                        str = RedMarket.fruits[frut].j.ToString() + " " + RedMarket.fruits[frut].i.ToString() + " " + j.ToString()+ " " + i.ToString();
+                                                        //str = RedMarket.fruits[frut].j.ToString() + " " + RedMarket.fruits[frut].i.ToString() + " " + j.ToString()+ " " + i.ToString();
                                                         if (RedMarket.fruits[frut].j  == j && RedMarket.fruits[frut].i  == i)
                                                         {
+                                                            if (RedMarket.fruits[frut].id == 20) HotPocket.Carrot++;
+                                                            else if (RedMarket.fruits[frut].id == 21) HotPocket.Strawbery++;
+                                                            else if (RedMarket.fruits[frut].id == 22) HotPocket.Cabbage++;
+                                                            else { }
+
                                                             RedMarket.fruits[frut].FruitsFloor = false;
-                                                            entity.ToolIndex = RedMarket.fruits[frut].id;
-                                                            HotPocket.Carrot++;
+                                                            RedMarket.fruits.Remove(RedMarket.fruits[frut]);
+
                                                         }
                                                     }
                                                 }

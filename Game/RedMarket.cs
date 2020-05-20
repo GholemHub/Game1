@@ -15,14 +15,19 @@ namespace Game
 
     public partial class RedMarket : Form
     {
+
+        public int rrr = 100;
         Entity player;
-      
+
         Tool Shovel;
         Tool Axe;
         Tool Bailer;
         Tool Scythe;
 
         Seeds Carrot;
+        Seeds Strawberry;
+        Seeds Cabbage;
+
 
         public Point relativePoint;
 
@@ -122,16 +127,17 @@ namespace Game
             //textBox1.Text = player.posX + "::" + player.posX;
             //textBox2.Text = player.Water.ToString();
             //textBox2.Text = ActionControll.GetString2();
-            
             if (NexRoom)
             {
-                this.Hide();
-                House redMarket = new House();
-                House form1 = redMarket;
+               
+                House redMarket = new House(player,this);
+                House Home = redMarket;
+                // this.Hide();
                 NexRoom = false;
-                form1.ShowDialog();
+                Home.ShowDialog();
                 
             }
+
 
 
             Invalidate();
@@ -151,8 +157,17 @@ namespace Game
 
                     foreach (var root in seeds[i].roots)
                     {
+                        
+                        //MessageBox.Show("qwe");
+                        if (root.id == 10)
+                        {
+                            MapController.BigMap[root.j, root.i].Fon = MapController.Ex.Clone(new Rectangle(32 * root.currentFrame, 32, 32, 32), MapController.grass.PixelFormat);
+                        }
+                        if (root.id == 11)
+                            MapController.BigMap[root.j, root.i].Fon = MapController.Ex.Clone(new Rectangle(32 * root.currentFrame, 0, 32, 32), MapController.grass.PixelFormat);
+                        if (root.id == 12)
+                            MapController.BigMap[root.j, root.i].Fon = MapController.Ex.Clone(new Rectangle(32 * root.currentFrame, 32 * 2, 32, 32), MapController.grass.PixelFormat);
 
-                        MapController.BigMap[root.j, root.i].Fon = MapController.Ex.Clone(new Rectangle(32 * root.currentFrame, 0, 32, 32), MapController.grass.PixelFormat);
                         if (root.currentFrame < root.idleFrames - 1)
                             root.currentFrame++;
                     }
@@ -170,9 +185,13 @@ namespace Game
             Scythe = new Tool(Res.shovel, 100, 70, 4);
             Bailer = new Tool(Res.shovel, 100, 150, 3);
 
-            Carrot = new Seeds(Res.Seeds, 150, 50,10);
+            Carrot = new Seeds(Res.Seeds, 150, 60,10);
+            Strawberry = new Seeds(Res.Seeds, 183, 60,11);
+            Cabbage = new Seeds(Res.Seeds, 215, 60,12);
 
             seeds.Add(Carrot);
+            seeds.Add(Strawberry);
+            seeds.Add(Cabbage);
 
             tools.Add(Shovel);
             tools.Add(Axe);
@@ -254,7 +273,16 @@ namespace Game
             Graphics g = e.Graphics;
             MapController.DrawMap(g);
 
-            textBox1.Text = ActionControll.GetString();
+            textBox1.Text = player.ToolIndex.ToString();
+            textBox2.Text = ActionControll.str;
+            label1.Text = Convert.ToString("Money: " + HotPocket.money +
+                "\nCarrot: " + HotPocket.Carrot +
+                "\nStrawbery: " + HotPocket.Strawbery+
+                "\nCabbage: " + HotPocket.Cabbage +
+                "\nCarrot Seeds: " + HotPocket.CarrotSeeds+
+                "\nStrawbery Seeds: " + HotPocket.StrawberySeeds +
+                "\nCabbage Seeds: " + HotPocket.CabbageSeeds
+                );
 
             player.PlayAnimation(g);
 
@@ -266,12 +294,11 @@ namespace Game
 
             foreach (var fruit in fruits)
             {
-                //if(fruit.)
                 fruit.Draw(g, player);
             }
 
 
-                    ActionControll.CursorDraw(relativePoint, player, g);
+            ActionControll.CursorDraw(relativePoint, player, g);
             ActionControll.ToolColision(player, tools, seeds);
 
         }
@@ -319,12 +346,18 @@ namespace Game
             {
                 if (this.id == 20)
                     g.DrawImage(this.texture, new Rectangle(new Point(32 * j, 32 * i), new Size(28, 28)), 32 * currentFrame, 0, 32, 32, GraphicsUnit.Pixel);
+
+                if (this.id == 21)
+                    g.DrawImage(this.texture, new Rectangle(new Point(32 * j, 32 * i), new Size(28, 28)), 32 * currentFrame, 32*5, 32, 32, GraphicsUnit.Pixel);
+
+                if (this.id == 22)
+                    g.DrawImage(this.texture, new Rectangle(new Point(32 * j, 32 * i), new Size(28, 28)), 32 * currentFrame, 32*4, 32, 32, GraphicsUnit.Pixel);
             }
             if (!FruitsFloor)
             {
                 if (player.ToolIndex == 20)
                 {
-                    player.SetAnimationConfiguration(7);
+                    //player.SetAnimationConfiguration(7);
                 }
                 /*
                 if (player.ToolIndex == 2)
@@ -348,7 +381,7 @@ namespace Game
 
         public int idleFrames = 4;
         public int currentFrame = 0;
-
+        public int AnimationFrame;
         public Roots(int i, int j, int id)
         {
             this.i = i;
@@ -399,16 +432,16 @@ namespace Game
             if (this.SeedsFloor)
             {
                 if (this.SeedsIndex == 10)
-                    g.DrawImage(this.texture, new Rectangle(new Point(posX, posY ), new Size(28, 28)), 32 * currentFrame, 0, 32, 32, GraphicsUnit.Pixel);
-                /*if (this.SeedsIndex == 2)
-                    g.DrawImage(this.texture, new Rectangle(new Point(posX + 4, posY + 4), new Size(28, 28)), 32 * currentFrame, 0, 32, 32, GraphicsUnit.Pixel);
-                if (this.SeedsIndex == 3)
-                    g.DrawImage(this.texture, new Rectangle(new Point(posX + 4, posY + 4), new Size(28, 28)), 32 * currentFrame, 32 * 2, 32, 32, GraphicsUnit.Pixel);*/
+                    g.DrawImage(this.texture, new Rectangle(new Point(posX, posY ), new Size(28, 28)), 0, 0, 32, 32, GraphicsUnit.Pixel);
+                if (this.SeedsIndex == 11)
+                    g.DrawImage(this.texture, new Rectangle(new Point(posX, posY), new Size(28, 28)), 32 , 0, 32, 32, GraphicsUnit.Pixel);
+                if (this.SeedsIndex == 12)                                      
+                    g.DrawImage(this.texture, new Rectangle(new Point(posX, posY), new Size(28, 28)), 32 * 2 , 0, 32, 32, GraphicsUnit.Pixel);
             }
             if (!this.SeedsFloor)
             {
                 if (player.ToolIndex == 10)
-                    player.SetAnimationConfiguration(7);
+                   player.SetAnimationConfiguration(7);
                 /*
                 if (player.ToolIndex == 2)
                     player.SetAnimationConfiguration(14);
@@ -505,8 +538,8 @@ namespace Game
 
         public int size = 32;
 
-        public int dirX;
-        public int dirY;
+        public  int dirX;
+        public  int dirY;
 
         public int PlayerView;
 
@@ -580,9 +613,9 @@ namespace Game
                 case 9:
                     currentLimit = runFrames;
                     break;
-                case 11:
+                /*case 11:
                     currentLimit = runFrames;
-                    break;
+                    break;*/
                 case 14:
                     currentLimit = runFrames;
                     break;
@@ -594,7 +627,11 @@ namespace Game
         public static int money = 200;
 
         public static int Carrot = 0;
+        public static int Strawbery = 0;
+        public static int Cabbage = 0;
         public static int CarrotSeeds= 2;
+        public static int StrawberySeeds= 2;
+        public static int CabbageSeeds= 200;
 
         public HotPocket(int money)
         {

@@ -21,12 +21,11 @@ namespace Game
             Exit.Location = new Point(Screen.Width / 2 - 202, Screen.Height / 2 - 100);
             Play.Size = new Size(404, 135);
             Exit.Size = new Size(404, 135);
+           
+            pl.Stream = Res.music1;
+          
+            pl.Play();
             Play.Refresh();
-        }
-
-        private void Play_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void MainMenu1_Load(object sender, EventArgs e)
@@ -36,15 +35,23 @@ namespace Game
 
         private void Play_Click_1(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
             RedMarket redMarket = new RedMarket();
             RedMarket form1 = redMarket;
             form1.ShowDialog();
+            this.Close();
         }
 
         private void Exit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        System.Media.SoundPlayer pl = new System.Media.SoundPlayer();
+        
+        private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
+        {
+            
+            
         }
     }
 }
