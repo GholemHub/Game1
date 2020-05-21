@@ -189,8 +189,6 @@ namespace Game.Controllers
                             {
                                 if (j == m && i == n)
                                 {
-
-
                                     ToollUse(entity, i, j, seeds);
                                 }
                             }
@@ -344,7 +342,7 @@ namespace Game.Controllers
             return true;
         }
 
-        public static void Fun_E(Entity entity)
+       /* public static void Fun_E(Entity entity)
         {
             for (int j = (entity.posX + 8) / MapController.cellSize; j < (entity.posX + 8 + MapController.cellSize) / MapController.cellSize; j++)
             {
@@ -376,7 +374,7 @@ namespace Game.Controllers
                     }
                 }
             }
-        }
+        }*/
 
         public static int lol = 0;
         public static void Fun_Q(Entity entity, List<Tool> tool, List<Seeds> seed)

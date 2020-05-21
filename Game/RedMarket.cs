@@ -15,7 +15,7 @@ namespace Game
 
     public partial class RedMarket : Form
     {
-
+        public static Point Different; 
         public int rrr = 100;
         Entity player;
 
@@ -40,11 +40,15 @@ namespace Game
 
         public static bool NexRoom = false;
 
+        
+
         //public HotPocket Pocket { get => pocket; set => pocket = value; }
 
         public RedMarket()
         {
             InitializeComponent();
+            Different = new Point((this.Width),(this.Height));
+
 
             this.BackgroundImage = MapController.grass.Clone(new Rectangle(32 * 8, 32 * 2, 32, 32), MapController.grass.PixelFormat);
 
@@ -77,7 +81,7 @@ namespace Game
             player.isMoving = false;
             player.SetAnimationConfiguration(0);
         }
-
+        public Shop shop = null;
         public void OnPress(object sender, KeyEventArgs e)
         {
 
@@ -96,10 +100,23 @@ namespace Game
                     
                 case Keys.Tab:
                     //this.Hide();
-                    Shop form1 = new Shop();
-                    form1.ShowDialog();
 
+                    //Shop shop = new Shop();
+                    //shop.ShowDialog();
+
+                    //Application.Run(new Shop());
+                    
+                    if (shop == null)
+                    {
+                        shop = new Shop();
+                        shop.ShowDialog();
+                    }
+                    else
+                    {
+                        shop.Close();
+                    }
                     break;
+
             }
         }
 
@@ -123,7 +140,7 @@ namespace Game
 
             if (!player.isMoving) ActionControll.CursoreView(relativePoint.X, relativePoint.Y, player);
 
-            //textBox1.Text = relativePoint.X + "::" + relativePoint.Y;
+            
             //textBox1.Text = player.posX + "::" + player.posX;
             //textBox2.Text = player.Water.ToString();
             //textBox2.Text = ActionControll.GetString2();
@@ -271,10 +288,10 @@ namespace Game
         private void OnPaint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            MapController.DrawMap(g);
+            MapController.DrawMap(g, this);
 
-            textBox1.Text = player.ToolIndex.ToString();
-            textBox2.Text = ActionControll.str;
+            textBox1.Text = this.Width.ToString() + " " + this.Height.ToString();
+            //textBox2.Text = ActionControll.str;
             label1.Text = Convert.ToString("Money: " + HotPocket.money +
                 "\nCarrot: " + HotPocket.Carrot +
                 "\nStrawbery: " + HotPocket.Strawbery+

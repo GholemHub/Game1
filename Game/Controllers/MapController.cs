@@ -14,6 +14,8 @@ namespace Game.Controllers
     
     public static class MapController
     {
+        //public static int Different = ; 
+
         public static Bitmap grass = new Bitmap(Res.TX32_2_1);
         public static Bitmap Ex = new Bitmap(Res.exSeeds);
         public static Bitmap grass1 = grass.Clone(new Rectangle(32 * 8, 32* 2, 32, 32), grass.PixelFormat);
@@ -32,7 +34,7 @@ namespace Game.Controllers
 
         public const int mapHeight = 20;
         public const int mapWidth = 27;
-        public const int cellSize = 32;
+        public const int cellSize = 40;
 
         public static TheMap[,] BigMap = new TheMap[mapWidth, mapHeight]
        {      {new TheMap(Garden1,true),new TheMap(Garden1,true), new TheMap(Garden1),new TheMap(Garden1,true),           new TheMap(Garden1,true),     new TheMap(Garden1,true) ,new TheMap(Garden1,true),   new TheMap(Garden1,true), new TheMap(Garden1) ,new TheMap(Garden1),new TheMap(Garden1),new TheMap(Garden1),new TheMap(Garden1,true),new TheMap(Garden1,true),new TheMap(Garden1,true),new TheMap(Garden1,true),new TheMap(Garden1,true),new TheMap(Garden1,true),new TheMap(Garden1,true),        new TheMap(Garden1,true)},
@@ -94,20 +96,21 @@ namespace Game.Controllers
              {new TheMap(Garden1,true),        new TheMap(Garden1,true), new TheMap(Garden1,true),     new TheMap(Garden1,true),     new TheMap(Garden1,true),   new TheMap(Garden1,true)  ,new TheMap(Garden1,true), new TheMap(Garden1,true), new TheMap(Garden1) ,new TheMap(Garden1),new TheMap(Garden1),new TheMap(Garden1),new TheMap(Garden1,true),new TheMap(Garden1,true),new TheMap(Garden1,true),new TheMap(Garden1,true),new TheMap(Garden1,true),new TheMap(Garden1,true),new TheMap(Garden1,true),new TheMap(Garden1,true)}
                 };
 
+        public static int DiffX = 0;
 
-        public static void DrawMap(Graphics g)
+        public static void DrawMap(Graphics g, RedMarket redMarket)
         {
+            DiffX = redMarket.Width/2 - 432;
 
-         
+
             for (int i = 0; i < mapHeight; i++)
             {
                 for (int j = 0; j < mapWidth; j++)
                 {
-                    
                     BigMap[j, i].posX = cellSize * j;
-                    BigMap[j, i].posY = cellSize * i;
+                    BigMap[j, i].posY = cellSize * i ;
 
-                    g.DrawImage(BigMap[j, i].Fon, new Rectangle(cellSize * j, cellSize * i, cellSize, cellSize));
+                    g.DrawImage(BigMap[j, i].Fon, new Rectangle(cellSize * j + DiffX, cellSize * i, cellSize, cellSize));
                 }
             }
             for (int i = 0; i < mapHeight; i++)

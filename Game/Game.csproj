@@ -272,6 +272,8 @@
     <None Include="Resources\market_stand_red_11.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Strawbery.png" />
+    <None Include="Resources\Strawbery_S.png" />
     <None Include="Resources\лопата-all-4.0.png" />
     <None Include="Resources\TX32_2_1_1.png" />
     <None Include="Resources\Tn7UqW6.png" />
@@ -293,6 +295,14 @@
     <Content Include="04 - Overworld Day.wav" />
     <None Include="Resources\04 - Overworld Day.wav" />
     <None Include="Resources\flat,1000x1000,075,f.u1.jpg" />
+    <None Include="Resources\Music1.wav" />
+    <None Include="Resources\Carrot_S.png" />
+    <None Include="Resources\Cabbage_S.png" />
+    <None Include="Resources\Cabbage.png" />
+    <None Include="Resources\Sell.png" />
+    <None Include="Resources\Buy.png" />
+    <None Include="Resources\minus.png" />
+    <None Include="Resources\plus.png" />
     <Content Include="Resources\shovel.png" />
   </ItemGroup>
   <ItemGroup>

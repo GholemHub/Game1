@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,16 +16,17 @@ namespace Game
         public MainMenu1()
         {
             InitializeComponent();
+           
             Size Screen = SystemInformation.PrimaryMonitorSize;
 
             Play.Location = new Point(Screen.Width / 2 - 202, Screen.Height / 4 - 100);
             Exit.Location = new Point(Screen.Width / 2 - 202, Screen.Height / 2 - 100);
             Play.Size = new Size(404, 135);
             Exit.Size = new Size(404, 135);
-           
-            pl.Stream = Res.music1;
-          
-            pl.Play();
+            axWindowsMediaPlayer1.settings.volume = 1;
+            axWindowsMediaPlayer1.URL = Path.Combine(new DirectoryInfo(Directory.GetCurrentDirectory()).Parent.Parent.FullName.ToString(), "Resources\\Music1.wav");
+
+            axWindowsMediaPlayer1.Ctlcontrols.play();
             Play.Refresh();
         }
 
@@ -46,7 +48,7 @@ namespace Game
         {
             this.Close();
         }
-        System.Media.SoundPlayer pl = new System.Media.SoundPlayer();
+        //System.Media.SoundPlayer pl = new System.Media.SoundPlayer();
         
         private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
         {

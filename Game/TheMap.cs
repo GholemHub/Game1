@@ -39,7 +39,7 @@ namespace Game
 
         public int currentFrame = 0;
 
-        public Bitmap Fon = Res.player;
+        public Bitmap Fon;
         //public Form1 NewForm;
 
         public bool RedMarket;
@@ -71,7 +71,6 @@ namespace Game
         }*/
 
 
-        public TheMap() { Fon = Res.player;}
     }
    
 
