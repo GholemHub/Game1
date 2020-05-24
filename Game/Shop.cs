@@ -59,10 +59,10 @@ namespace Game
             MessageBox.Show("qwe");
             switch (e.KeyCode)
             {
-                case Keys.Tab:
+                case Keys.Space:
                     //MessageBox.Show("qwe");
                     //Application.Exit();
-                   
+                    this.Close();
                     break;
             }
         }

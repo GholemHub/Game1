@@ -636,7 +636,7 @@ namespace Game.Controllers
         public static void CursorDraw(Point cursor, Entity entity, Graphics g)
         {
 
-            for (int j = (cursor.X) / MapController.cellSize; j < (cursor.X + MapController.cellSize) / MapController.cellSize; j++)
+            for (int j = (cursor.X) / MapController.cellSize ; j < (cursor.X + MapController.cellSize ) / MapController.cellSize; j++)
             {
                 for (int i = (cursor.Y) / MapController.cellSize; i < (cursor.Y + MapController.cellSize) / MapController.cellSize; i++)
                 {

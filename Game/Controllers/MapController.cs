@@ -34,7 +34,7 @@ namespace Game.Controllers
 
         public const int mapHeight = 20;
         public const int mapWidth = 27;
-        public const int cellSize = 40;
+        public const int cellSize = 32;
 
         public static TheMap[,] BigMap = new TheMap[mapWidth, mapHeight]
        {      {new TheMap(Garden1,true),new TheMap(Garden1,true), new TheMap(Garden1),new TheMap(Garden1,true),           new TheMap(Garden1,true),     new TheMap(Garden1,true) ,new TheMap(Garden1,true),   new TheMap(Garden1,true), new TheMap(Garden1) ,new TheMap(Garden1),new TheMap(Garden1),new TheMap(Garden1),new TheMap(Garden1,true),new TheMap(Garden1,true),new TheMap(Garden1,true),new TheMap(Garden1,true),new TheMap(Garden1,true),new TheMap(Garden1,true),new TheMap(Garden1,true),        new TheMap(Garden1,true)},
@@ -107,10 +107,10 @@ namespace Game.Controllers
             {
                 for (int j = 0; j < mapWidth; j++)
                 {
-                    BigMap[j, i].posX = cellSize * j;
+                    BigMap[j, i].posX = cellSize * j ;
                     BigMap[j, i].posY = cellSize * i ;
 
-                    g.DrawImage(BigMap[j, i].Fon, new Rectangle(cellSize * j + DiffX, cellSize * i, cellSize, cellSize));
+                    g.DrawImage(BigMap[j, i].Fon, new Rectangle(cellSize * j, cellSize * i, cellSize, cellSize));
                 }
             }
             for (int i = 0; i < mapHeight; i++)

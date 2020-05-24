@@ -52,7 +52,7 @@ namespace Game
 
             this.BackgroundImage = MapController.grass.Clone(new Rectangle(32 * 8, 32 * 2, 32, 32), MapController.grass.PixelFormat);
 
-            this.Size = new Size(MapController.mapWidth * 32 + 16, MapController.mapHeight * 32 + 39);
+            this.Size = new Size(MapController.mapWidth * 32, MapController.mapHeight * 32);
 
             timer1.Interval = 10;
             TimerRoots.Interval = 3000;
@@ -106,15 +106,10 @@ namespace Game
 
                     //Application.Run(new Shop());
                     
-                    if (shop == null)
-                    {
+                    
                         shop = new Shop();
                         shop.ShowDialog();
-                    }
-                    else
-                    {
-                        shop.Close();
-                    }
+                    
                     break;
 
             }
