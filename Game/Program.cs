@@ -16,9 +16,9 @@ namespace Game
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new MainMenu1());
+            Application.Run(new MainMenu1());
             //Application.Run(new Form1());
-            Application.Run(new RedMarket());
+            //Application.Run(new RedMarket());
             //Application.Run(new Shop());
             //Application.Run(new House());
 

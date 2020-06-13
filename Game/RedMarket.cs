@@ -20,7 +20,7 @@ namespace Game
         Entity player;
 
         Tool Shovel;
-        Tool Axe;
+        //Tool Axe;
         Tool Bailer;
         Tool Scythe;
 
@@ -190,23 +190,22 @@ namespace Game
         }
         public void Init()
         {
-            player = new Entity(200, 100, 3, 7, Res.RedBox);
+            player = new Entity(192, 96, 3, 7, Res.RedBox);
             //HotPocket Pocket = new HotPocket(200);
-            Shovel = new Tool(Res.shovel, 100, 100, 1);
-            Axe = new Tool(Res.shovel, 50, 100, 2);
-            Scythe = new Tool(Res.shovel, 100, 70, 4);
-            Bailer = new Tool(Res.shovel, 100, 150, 3);
-
-            Carrot = new Seeds(Res.Seeds, 150, 60,10);
-            Strawberry = new Seeds(Res.Seeds, 183, 60,11);
-            Cabbage = new Seeds(Res.Seeds, 215, 60,12);
+            Shovel = new Tool(Res.shovel, 96, 96, 1);
+            Scythe = new Tool(Res.shovel, 96, 160, 4);
+            Bailer = new Tool(Res.shovel, 96, 128, 3);
+//Axe = new Tool(Res.shovel, 50, 100, 2);
+            Carrot = new Seeds(Res.Seeds, 128, 64,10);
+            Strawberry = new Seeds(Res.Seeds, 160, 64, 11);
+            Cabbage = new Seeds(Res.Seeds, 192, 64, 12);
 
             seeds.Add(Carrot);
             seeds.Add(Strawberry);
             seeds.Add(Cabbage);
 
             tools.Add(Shovel);
-            tools.Add(Axe);
+            //tools.Add(Axe);
             tools.Add(Bailer);
             tools.Add(Scythe);
 
@@ -454,13 +453,6 @@ namespace Game
             {
                 if (player.ToolIndex == 10)
                    player.SetAnimationConfiguration(7);
-                /*
-                if (player.ToolIndex == 2)
-                    player.SetAnimationConfiguration(14);
-
-                if (player.ToolIndex == 3)
-                    player.SetAnimationConfiguration(4);*/
-
             }
 
         }
@@ -643,7 +635,7 @@ namespace Game
         public static int Cabbage = 0;
         public static int CarrotSeeds= 2;
         public static int StrawberySeeds= 2;
-        public static int CabbageSeeds= 200;
+        public static int CabbageSeeds= 2;
 
         public HotPocket(int money)
         {
